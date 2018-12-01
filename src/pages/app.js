@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import TodoItems from "./ToDoItems";
+import ButtonAppBar from "./ButtonAppBar";
 
 import "../ToDoList.css";
+import { Button } from "@material-ui/core";
 
 class App extends Component {
   constructor(props) {
@@ -43,18 +45,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="todoListMain">
-        <div className="header">
-          <form onSubmit={this.addItem}>
-            <input
-              ref={a => (this._inputElement = a)}
-              placeholder="enter task"
-            />
-            <button type="submit">add</button>
-          </form>
+      <div>
+        <header className="ButtonAppBar" position="top">
+          <ButtonAppBar />
+        </header>
+        <div className="todoListMain">
+          <div className="header">
+            <form onSubmit={this.addItem}>
+              <input
+                ref={a => (this._inputElement = a)}
+                placeholder="enter task"
+              />
+              <button type="submit">add</button>
+            </form>
+          </div>
+            
+          <TodoItems entries={this.state.items} delete={this.deleteItem} />
         </div>
-          
-        <TodoItems entries={this.state.items} delete={this.deleteItem} />
       </div>
     );
   }

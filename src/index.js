@@ -8,7 +8,6 @@ var destination = document.querySelector("#container");
 
 ReactDOM.render(
   <div>
-    <p>Hello stav!</p>
     <App />
   </div>,
   destination

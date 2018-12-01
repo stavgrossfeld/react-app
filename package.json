@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "latest",
+    "@material-ui/icons": "^3.0.1",
+    "material-ui-search-bar": "^0.4.2",
     "nodemon": "^1.18.7",
     "prop-types": "latest",
     "react": "latest",

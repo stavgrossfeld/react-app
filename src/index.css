@@ -1,6 +1,16 @@
+header {
+  position: absolute;
+  min-width: 100%;
+  top: 0px;
+  left: 0px;
+}
+.MuiAppBar-colorPrimary-11 {
+  color: #1d2;
+}
 body {
+  margin: 100px;
   padding: 50px;
-  background-color: #1976d2;
+  background-color: #1d3955;
   font-family: sans-serif;
 }
 #container {
