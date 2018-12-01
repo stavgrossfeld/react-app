@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FlipMove from "react-flip-move";
 class ToDoItems extends Component {
     constructor(props) {
         super(props);
@@ -22,7 +23,10 @@ class ToDoItems extends Component {
 
     return ( 
         <ul className = "theList">
-        {listItems}
+        <FlipMove duration={100} easing="ease-in">        
+            {listItems}
+        </FlipMove>
+
         </ul>
     );
     }

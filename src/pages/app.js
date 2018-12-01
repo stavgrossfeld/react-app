@@ -1,43 +1,41 @@
 import React, { Component } from "react";
 import TodoItems from "./ToDoItems";
 
-import "../ToDoList.css"
+import "../ToDoList.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {items: []};
+    this.state = { items: [] };
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
-
   }
-  addItem(e){
+  addItem(e) {
     if (this._inputElement.value !== "") {
       var newItem = {
         text: this._inputElement.value,
         key: Date.now(),
-        type: typeof(this._inputElement.value)
+        type: typeof this._inputElement.value
       };
-   
-      this.setState((prevState) => {
-        return { 
-          items: prevState.items.concat(newItem) 
+
+      this.setState(prevState => {
+        return {
+          items: prevState.items.concat(newItem)
         };
       });
-     
+
       this._inputElement.value = "";
     }
-    
-     
+
     console.log(this.state.items);
-       
+
     e.preventDefault();
   }
   deleteItem(key) {
-    var filteredItems = this.state.items.filter(function (item) {
-      return (item.key !== key);
+    var filteredItems = this.state.items.filter(function(item) {
+      return item.key !== key;
     });
-   
+
     this.setState({
       items: filteredItems
     });
@@ -47,21 +45,19 @@ class App extends Component {
     return (
       <div className="todoListMain">
         <div className="header">
-        
           <form onSubmit={this.addItem}>
-          
-            <input ref={(a) => this._inputElement = a}
-            placeholder="enter task">
-            </input>
+            <input
+              ref={a => (this._inputElement = a)}
+              placeholder="enter task"
+            />
             <button type="submit">add</button>
           </form>
         </div>
-          <TodoItems entries={this.state.items}
-                     delete={this.deleteItem}/>
-
+          
+        <TodoItems entries={this.state.items} delete={this.deleteItem} />
       </div>
     );
   }
 }
- 
+
 export default App;
